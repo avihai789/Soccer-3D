@@ -1,0 +1,510 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/Steve.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Steve.gd" type="Script" id=2]
+[ext_resource path="res://Textures/Moss002_2K_Roughness.jpg" type="Texture" id=3]
+[ext_resource path="res://Textures/Moss002_2K_Normal.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/clockLibrary.tres" type="MeshLibrary" id=5]
+[ext_resource path="res://assets/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://fonts/TranscendsGames.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scripts/counter.gd" type="Script" id=9]
+[ext_resource path="res://Imports/hud_coin.png" type="Texture" id=10]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 20, 1, 30 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.105882, 0.913725, 0.0784314, 1 )
+roughness_texture = ExtResource( 3 )
+normal_enabled = true
+normal_scale = -10.0
+normal_texture = ExtResource( 4 )
+uv1_scale = Vector3( 0.1, 0.1, 0.1 )
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+size = Vector3( 40, 2, 60 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "enemy1animation"
+length = 9.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -13, 1, -25 ), Vector3( -13, 1, 0 ), Vector3( -13, 1, -25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 720, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "enemy1animation"
+length = 9.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "enemy2animation"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -18, 1, 22.432 ), Vector3( -13, 1, 22.432 ), Vector3( -18, 1, 22.432 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -360 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "enemy1animation"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 9, 1, 0 ), Vector3( 9, 1, -12 ), Vector3( 9, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -6.10352e-05 ), Vector3( 360, 0, 0 ), Vector3( 0, 0, -6.10352e-05 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "enemy2animation"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -18, 1, 22.432 ), Vector3( -13, 1, 22.432 ), Vector3( -18, 1, 22.432 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -360 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "enemy1animation"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 12, 1, 3 ), Vector3( 12, 1, 17 ), Vector3( 12, 1, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 720, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "enemy2animation"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -18, 1, 22.432 ), Vector3( -13, 1, 22.432 ), Vector3( -18, 1, 22.432 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -360 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "enemy1animation"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -7.5, 1, 7.5 ), Vector3( -5, 1, 10 ), Vector3( -7.5, 1, 12.5 ), Vector3( -10, 1, 10 ), Vector3( -7.5, 1, 7.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "enemy2animation"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -18, 1, 22.432 ), Vector3( -13, 1, 22.432 ), Vector3( -18, 1, 22.432 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -360 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=13]
+size = 80
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 80
+font_data = ExtResource( 8 )
+
+[node name="Level2" type="Spatial"]
+
+[node name="Floor" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Steve" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 27.3275 )
+script = ExtResource( 2 )
+
+[node name="CameraTarget" type="Spatial" parent="Steve"]
+transform = Transform( 1, 0, 0, 0, 0.864933, 0.501888, 0, -0.501888, 0.864933, 0, 5.1449, 7.86594 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.77085, 25.1552 )
+target = NodePath("../Steve/CameraTarget")
+speed = 3.0
+enabled = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.96423, -0.204046, 0.169192, 0, 0.638298, 0.76979, -0.265068, 0.742254, -0.615466, 0, 8.79981, 0 )
+light_color = Color( 0.886275, 0.964706, 0.337255, 1 )
+shadow_enabled = true
+directional_shadow_max_distance = 85.0
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 5 )
+cell_size = Vector3( 1, 1, 1 )
+data = {
+"cells": PoolIntArray( 6, 0, 0, 19, 0, 536870912, 65516, 0, 0, 65529, 0, 536870912, 1, 1, 0, 2, 1, -1610612736, 3, 1, 536870912, 4, 1, 0, 5, 1, 536870912, 6, 1, -1073741824, 7, 1, 0, 8, 1, 0, 9, 1, 536870912, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 536870912, 17, 1, 0, 18, 1, 536870912, 19, 1, -1610612736, 65516, 1, 0, 65517, 1, -1610612736, 65518, 1, 536870912, 65519, 1, 0, 65520, 1, 536870912, 65521, 1, 536870912, 65522, 1, 536870912, 65523, 1, 0, 65524, 1, 0, 65525, 1, 0, 65526, 1, 0, 65527, 1, -1610612736, 65528, 1, 536870912, 65529, 1, 0, 65530, 1, 536870912, 65531, 1, 0, 65532, 1, 536870912, 65533, 1, -1610612736, 6, 2, -1610612736, 19, 2, 0, 65516, 2, 0, 65529, 2, 536870912, 5, 3, 0, 19, 3, 0, 65516, 3, 0, 65530, 3, 0, 4, 4, 536870912, 19, 4, 0, 65516, 4, 536870912, 3, 5, 0, 19, 5, 0, 65516, 5, -1610612736, 2, 6, 536870912, 19, 6, 0, 65516, 6, 536870912, 65533, 6, 0, 0, 7, 0, 1, 7, 0, 19, 7, 0, 65516, 7, 536870912, 65534, 7, 536870912, 65535, 7, 0, 19, 8, -1610612736, 65516, 8, 0, 19, 9, 536870912, 65516, 9, -1610612736, 19, 10, 0, 65516, 10, 0, 19, 11, -1610612736, 65516, 11, 0, 19, 12, 536870912, 65516, 12, 0, 19, 13, 0, 65516, 13, -1610612736, 19, 14, 0, 65516, 14, 536870912, 19, 15, -1610612736, 65516, 15, 0, 19, 16, 0, 65516, 16, 0, 19, 17, -1610612736, 65516, 17, 0, 0, 18, 0, 1, 18, -1610612736, 2, 18, -1610612736, 3, 18, 0, 4, 18, -1610612736, 5, 18, 536870912, 6, 18, -1610612736, 7, 18, 0, 8, 18, -1610612736, 9, 18, -1610612736, 10, 18, -1610612736, 11, 18, 0, 19, 18, 0, 65516, 18, -1610612736, 65524, 18, -1610612736, 65525, 18, 0, 65526, 18, -1610612736, 65527, 18, -1610612736, 65528, 18, 0, 65529, 18, -1610612736, 65530, 18, -1610612736, 65531, 18, 0, 65532, 18, -1610612736, 65533, 18, -1610612736, 65534, 18, 0, 65535, 18, 0, 11, 19, 536870912, 19, 19, 0, 65516, 19, 536870912, 65524, 19, 0, 11, 20, 0, 19, 20, 0, 65516, 20, 0, 65524, 20, 0, 11, 21, 0, 19, 21, 0, 65516, 21, 536870912, 65524, 21, 0, 11, 22, 0, 19, 22, 0, 65516, 22, 0, 65524, 22, 0, 11, 23, 0, 19, 23, 0, 65516, 23, 536870912, 65524, 23, 0, 19, 24, 0, 65516, 24, 0, 65524, 24, 0, 19, 25, 0, 65516, 25, 0, 65524, 25, 536870912, 19, 26, 0, 65516, 26, 0, 65524, 26, -1610612736, 19, 27, 0, 65516, 27, 536870912, 65524, 27, 0, 19, 28, 0, 65516, 28, -1610612736, 65524, 28, 0, 0, 29, -1610612736, 1, 29, -1610612736, 2, 29, 0, 3, 29, 0, 4, 29, 0, 5, 29, 0, 6, 29, -1610612736, 7, 29, 0, 8, 29, 0, 9, 29, 0, 10, 29, 0, 11, 29, 0, 12, 29, 0, 13, 29, 0, 14, 29, 0, 15, 29, 0, 16, 29, 0, 17, 29, 0, 18, 29, 0, 19, 29, 0, 65516, 29, 0, 65517, 29, 0, 65518, 29, 0, 65519, 29, 0, 65520, 29, 0, 65521, 29, 0, 65522, 29, 0, 65523, 29, 0, 65524, 29, 0, 65525, 29, 0, 65526, 29, 0, 65527, 29, 0, 65528, 29, 0, 65529, 29, 0, 65530, 29, 0, 65531, 29, 0, 65532, 29, 0, 65533, 29, 0, 65534, 29, 0, 65535, 29, 0, 0, 65506, 0, 1, 65506, 0, 2, 65506, 0, 3, 65506, 0, 4, 65506, 0, 65531, 65506, 0, 65532, 65506, 0, 65533, 65506, 0, 65534, 65506, 0, 65535, 65506, 0, 65536, 65506, 0, 65537, 65506, 0, 65538, 65506, 0, 65539, 65506, 0, 65540, 65506, 0, 131067, 65506, 0, 131068, 65506, 0, 131069, 65506, 0, 131070, 65506, 0, 131071, 65506, 0, 131072, 65506, 0, 131073, 65506, 0, 131074, 65506, 0, 131075, 65506, 0, 131076, 65506, 0, 196603, 65506, 0, 196604, 65506, 0, 196605, 65506, 0, 196606, 65506, 0, 196607, 65506, 0, 196608, 65506, 0, 196609, 65506, 0, 196610, 65506, 0, 196611, 65506, 0, 196612, 65506, 0, 262139, 65506, 0, 262140, 65506, 0, 262141, 65506, 0, 262142, 65506, 0, 262143, 65506, 0, 4, 65507, 0, 65531, 65507, 0, 65540, 65507, 0, 131067, 65507, 0, 131076, 65507, 0, 196603, 65507, 0, 196608, 65507, 0, 196609, 65507, 0, 196610, 65507, 0, 196611, 65507, 0, 196612, 65507, 0, 262139, 65507, 0, 262140, 65507, 0, 262141, 65507, 0, 262142, 65507, 0, 262143, 65507, 0, 4, 65508, 0, 65531, 65508, 0, 65540, 65508, 0, 131067, 65508, 0, 131076, 65508, 0, 196603, 65508, 0, 196608, 65508, 0, 196609, 65508, 0, 196610, 65508, 0, 196611, 65508, 0, 196612, 65508, 0, 262139, 65508, -1073741824, 262140, 65508, 0, 262141, 65508, 0, 262142, 65508, 0, 262143, 65508, 0, 4, 65509, 0, 5, 65509, 0, 6, 65509, 0, 7, 65509, 0, 8, 65509, 0, 9, 65509, 0, 10, 65509, 0, 11, 65509, 0, 12, 65509, 0, 13, 65509, 0, 14, 65509, 0, 15, 65509, 0, 16, 65509, 0, 17, 65509, 0, 18, 65509, 0, 19, 65509, 0, 65516, 65509, 0, 65517, 65509, 0, 65518, 65509, 0, 65519, 65509, 0, 65520, 65509, 0, 65521, 65509, 0, 65522, 65509, 0, 65523, 65509, 0, 65524, 65509, 0, 65525, 65509, 0, 65526, 65509, 0, 65527, 65509, 0, 65528, 65509, 0, 65529, 65509, 0, 65530, 65509, 0, 65531, 65509, 0, 65540, 65509, 0, 131067, 65509, 0, 131076, 65509, 0, 196603, 65509, 0, 196608, 65509, 0, 196609, 65509, 0, 196610, 65509, 0, 196611, 65509, 0, 196612, 65509, 0, 262139, 65509, 0, 262140, 65509, 0, 262141, 65509, 0, 262142, 65509, 0, 262143, 65509, 0, 11, 65510, 0, 19, 65510, 0, 65516, 65510, 0, 65524, 65510, 0, 65529, 65510, 0, 11, 65511, 0, 19, 65511, 0, 65516, 65511, 0, 65524, 65511, 0, 65529, 65511, 0, 11, 65512, 0, 19, 65512, 0, 65516, 65512, 0, 65524, 65512, 0, 65529, 65512, 0, 11, 65513, 0, 19, 65513, 0, 65516, 65513, 0, 65524, 65513, 0, 65529, 65513, 0, 6, 65514, 0, 11, 65514, 0, 19, 65514, 0, 65516, 65514, 0, 65524, 65514, 0, 65529, 65514, 0, 6, 65515, 0, 11, 65515, 0, 19, 65515, 0, 65516, 65515, 0, 65524, 65515, 0, 65529, 65515, 0, 0, 65516, 0, 1, 65516, 0, 2, 65516, 0, 3, 65516, 0, 4, 65516, 0, 5, 65516, 0, 6, 65516, 0, 11, 65516, 0, 19, 65516, 0, 65516, 65516, 0, 65524, 65516, 0, 65529, 65516, 0, 65530, 65516, 0, 65531, 65516, 0, 65532, 65516, 0, 65533, 65516, 0, 65534, 65516, 0, 65535, 65516, 0, 11, 65517, 0, 19, 65517, 0, 65516, 65517, 0, 65524, 65517, 0, 11, 65518, 0, 19, 65518, 0, 65516, 65518, 0, 11, 65519, 0, 19, 65519, 0, 65516, 65519, 0, 11, 65520, 0, 19, 65520, -1073741824, 65516, 65520, 0, 0, 65521, 0, 1, 65521, 0, 2, 65521, 0, 3, 65521, 0, 4, 65521, 0, 5, 65521, 0, 6, 65521, 0, 7, 65521, 0, 8, 65521, 0, 9, 65521, 0, 10, 65521, 0, 11, 65521, 0, 19, 65521, 0, 65516, 65521, 0, 65524, 65521, 0, 65525, 65521, 0, 65526, 65521, 0, 65527, 65521, 0, 65528, 65521, 0, 65529, 65521, 0, 65530, 65521, 0, 65531, 65521, 0, 65532, 65521, 0, 65533, 65521, 0, 65534, 65521, 0, 65535, 65521, 0, 19, 65522, 0, 65516, 65522, 0, 19, 65523, -1073741824, 65516, 65523, 0, 19, 65524, 0, 65516, 65524, 0, 19, 65525, 0, 65516, 65525, 0, 19, 65526, 0, 65516, 65526, 0, 19, 65527, 0, 65516, 65527, 0, 19, 65528, 0, 65516, 65528, 0, 19, 65529, 0, 65516, 65529, 0, 19, 65530, 0, 65516, 65530, 0, 0, 65531, 0, 1, 65531, 0, 19, 65531, 0, 65516, 65531, 0, 65534, 65531, 0, 65535, 65531, 0, 2, 65532, 0, 19, 65532, 0, 65516, 65532, 0, 65533, 65532, 0, 19, 65533, 0, 65516, 65533, 0, 65532, 65533, 0, 19, 65534, 0, 65516, 65534, 0, 65531, 65534, 0, 5, 65535, 0, 19, 65535, 0, 65516, 65535, 0, 65530, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="enemy1" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1, -25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy1"]
+autoplay = "enemy1animation"
+anims/enemy1animation = SubResource( 4 )
+
+[node name="enemy2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 6.51683e-07, 0, -6.51683e-07, 1, 0, 0, 0, 1, -13, 1, 22.432 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy2"]
+autoplay = "enemy2animation"
+anims/enemy1animation = SubResource( 5 )
+anims/enemy2animation = SubResource( 6 )
+
+[node name="enemy3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 1.06527e-06, 0, -1.06527e-06, 1, 0, 0, 0, 1, 9, 1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy3"]
+autoplay = "enemy1animation"
+anims/enemy1animation = SubResource( 7 )
+anims/enemy2animation = SubResource( 8 )
+
+[node name="enemy4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy4"]
+autoplay = "enemy1animation"
+anims/enemy1animation = SubResource( 9 )
+anims/enemy2animation = SubResource( 10 )
+
+[node name="enemy5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 1.06527e-06, 0, -1.06527e-06, 1, 0, 0, 0, 1, -7.5, 1, 7.5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy5"]
+autoplay = "enemy1animation"
+anims/enemy1animation = SubResource( 11 )
+anims/enemy2animation = SubResource( 12 )
+
+[node name="Coins" type="Spatial" parent="."]
+
+[node name="coinHolder1" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0498977, 0.604562, 15.2287 )
+
+[node name="coin" parent="Coins/coinHolder1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder2" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5152, 0.604562, 15.2287 )
+
+[node name="coin" parent="Coins/coinHolder2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder3" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77528, 0.604562, 25.9959 )
+
+[node name="coin" parent="Coins/coinHolder3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder4" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77528, 0.604562, 3.01567 )
+
+[node name="coin" parent="Coins/coinHolder4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder5" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.422, 0.604562, -3.56974 )
+
+[node name="coin" parent="Coins/coinHolder5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder6" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020565, 0.604562, -26.8966 )
+
+[node name="coin" parent="Coins/coinHolder6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder7" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93388, 0.604562, -13.1061 )
+
+[node name="coin" parent="Coins/coinHolder7" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder9" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5418, 0.604562, -4.9003 )
+
+[node name="coin" parent="Coins/coinHolder9" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder10" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.23895, 0.604562, 6.03102 )
+
+[node name="coin" parent="Coins/coinHolder10" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder11" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5545, 0.604562, 13.5832 )
+
+[node name="coin" parent="Coins/coinHolder11" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.48656, 0, -5.71091 )
+
+[node name="coinHolder12" type="Spatial" parent="Coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01298, 0.604562, 25.8131 )
+
+[node name="coin" parent="Coins/coinHolder12" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = 0.630005
+margin_right = 1280.63
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( 1027, 63 )
+scale = Vector2( 0.156, 0.156 )
+texture = ExtResource( 10 )
+
+[node name="X" type="Label" parent="Control"]
+margin_left = 1070.0
+margin_top = 26.0
+margin_right = 1108.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 13 )
+text = "X"
+
+[node name="counter" type="Label" parent="Control"]
+margin_left = 1129.81
+margin_top = 27.1191
+margin_right = 1251.81
+margin_bottom = 141.119
+custom_fonts/font = SubResource( 14 )
+text = "123"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Control/counter"]
+wait_time = 0.6
+[connection signal="body_entered" from="enemy1" to="Steve" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="enemy2" to="Steve" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="enemy3" to="Steve" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="enemy4" to="Steve" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="enemy5" to="Steve" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Coins/coinHolder1/coin" to="Coins/coinHolder1/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder1/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder2/coin" to="Coins/coinHolder2/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder2/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder3/coin" to="Coins/coinHolder3/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder3/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder4/coin" to="Coins/coinHolder4/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder4/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder5/coin" to="Coins/coinHolder5/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder5/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder6/coin" to="Coins/coinHolder6/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder6/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder7/coin" to="Coins/coinHolder7/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder7/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder9/coin" to="Coins/coinHolder9/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder9/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder10/coin" to="Coins/coinHolder10/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder10/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder11/coin" to="Coins/coinHolder11/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder11/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="body_entered" from="Coins/coinHolder12/coin" to="Coins/coinHolder12/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="Coins/coinHolder12/coin" to="Control/counter" method="_on_coin_Collected"]
+[connection signal="timeout" from="Control/counter/Timer" to="Control/counter" method="_on_Timer_timeout"]

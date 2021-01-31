@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/TranscendsGames.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/button-play.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0.360784, 0.478431, 0.721569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -1.8877
+margin_top = 1.88776
+margin_right = 1278.11
+margin_bottom = 244.888
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.447059, 1, 0.505882, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "soccer 3D"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button-play" type="Button" parent="."]
+margin_left = 540.0
+margin_top = 310.0
+margin_right = 740.0
+margin_bottom = 410.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.447059, 1, 0.505882, 1 )
+custom_colors/font_color_hover = Color( 0.968627, 0.431373, 0.431373, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Play"
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="button-play" to="button-play" method="_on_buttonplay_pressed"]
